@@ -1,7 +1,11 @@
 using ECommerce.Application.Services.Implementations;
 using ECommerce.Application.Services.Interfaces;
 using ECommerce.Domain.Repositories;
+using ECommerce.Infrastructure;
 using ECommerce.Infrastructure.Repositories;
+using ECommerce.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +13,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add Controllers
 // ------------------------------------------------------
 builder.Services.AddControllers();
+// builder.Services.AddSwaggerGen(c => {
+//         c.SwaggerDoc("v1", new OpenApiInfo {
+//             Title = "ECommerce API", Version = "v1"
+//         });
+//     });
+
+// ------------------------------------------------------
+// Database Configuration
+// ------------------------------------------------------
+// add infrastructure (DbContext + provider selection)
+builder.Services.AddInfrastructure(builder.Configuration);
 
 // ------------------------------------------------------
 //  Repository Registrations
@@ -40,7 +55,11 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI( c=>
+    {
+        // c.SwaggerEndpoint("/swagger/v1/swagger.json", "ECommerce API V1");
+        // c.RoutePrefix = "swagger";
+    });
 }
 
 app.UseHttpsRedirection();

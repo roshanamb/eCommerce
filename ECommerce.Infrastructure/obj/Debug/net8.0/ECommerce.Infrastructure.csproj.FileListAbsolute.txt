@@ -15,3 +15,4 @@ C:\RK\repos\eCommerce\ECommerce.Infrastructure\obj\Debug\net8.0\ECommerce.Infras
 C:\RK\repos\eCommerce\ECommerce.Infrastructure\obj\Debug\net8.0\ref\ECommerce.Infrastructure.dll
 C:\RK\repos\eCommerce\ECommerce.Infrastructure\bin\Debug\net8.0\ECommerce.Infrastructure.runtimeconfig.json
 C:\RK\repos\eCommerce\ECommerce.Infrastructure\obj\Debug\net8.0\ECommerce.Infrastructure.genruntimeconfig.cache
+C:\RK\repos\eCommerce\ECommerce.Infrastructure\obj\Debug\net8.0\ECommerce.Infrastructure.sourcelink.json
