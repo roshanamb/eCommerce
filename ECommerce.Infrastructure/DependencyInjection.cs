@@ -2,6 +2,10 @@ using ECommerce.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using StackExchange.Redis;
+using ECommerce.Application.Services.Interfaces;
+using ECommerce.Infrastructure.Caching;
+
 
 namespace ECommerce.Infrastructure;
 
@@ -11,6 +15,8 @@ public static class DependencyInjection
         this IServiceCollection services,
         IConfiguration configuration)
     {
+        #region Add Database Context Based on Provider
+
         var provider = configuration["DatabaseProvider"] ?? "MySQL";
 
         if (string.Equals(provider, "SqlServer", StringComparison.OrdinalIgnoreCase))
@@ -36,6 +42,21 @@ public static class DependencyInjection
         {
             throw new InvalidOperationException($"Unsupported provider: {provider}");
         }
+
+        #endregion
+
+        #region Redis cache setup
+
+        var redisConnection = configuration.GetConnectionString("Redis");
+        if (!string.IsNullOrEmpty(redisConnection))
+        {
+            services.AddSingleton<IConnectionMultiplexer>(sp =>
+                ConnectionMultiplexer.Connect(redisConnection));
+
+            services.AddSingleton<ICacheService, RedisCacheService>();
+        }
+
+        #endregion
 
         return services;
     }
