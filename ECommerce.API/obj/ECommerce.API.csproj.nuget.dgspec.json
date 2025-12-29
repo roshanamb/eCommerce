@@ -30,6 +30,9 @@
             "projectReferences": {
               "C:\\RK\\repos\\eCommerce\\ECommerce.Application\\ECommerce.Application.csproj": {
                 "projectPath": "C:\\RK\\repos\\eCommerce\\ECommerce.Application\\ECommerce.Application.csproj"
+              },
+              "C:\\RK\\repos\\eCommerce\\ECommerce.Infrastructure\\ECommerce.Infrastructure.csproj": {
+                "projectPath": "C:\\RK\\repos\\eCommerce\\ECommerce.Infrastructure\\ECommerce.Infrastructure.csproj"
               }
             }
           }
@@ -121,9 +124,6 @@
             "projectReferences": {
               "C:\\RK\\repos\\eCommerce\\ECommerce.Domain\\ECommerce.Domain.csproj": {
                 "projectPath": "C:\\RK\\repos\\eCommerce\\ECommerce.Domain\\ECommerce.Domain.csproj"
-              },
-              "C:\\RK\\repos\\eCommerce\\ECommerce.Infrastructure\\ECommerce.Infrastructure.csproj": {
-                "projectPath": "C:\\RK\\repos\\eCommerce\\ECommerce.Infrastructure\\ECommerce.Infrastructure.csproj"
               }
             }
           }
@@ -246,6 +246,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "C:\\RK\\repos\\eCommerce\\ECommerce.Application\\ECommerce.Application.csproj": {
+                "projectPath": "C:\\RK\\repos\\eCommerce\\ECommerce.Application\\ECommerce.Application.csproj"
+              },
               "C:\\RK\\repos\\eCommerce\\ECommerce.Domain\\ECommerce.Domain.csproj": {
                 "projectPath": "C:\\RK\\repos\\eCommerce\\ECommerce.Domain\\ECommerce.Domain.csproj"
               }
@@ -299,6 +302,10 @@
               "target": "Package",
               "version": "[10.0.1, )"
             },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
             "Microsoft.Extensions.Configuration.FileExtensions": {
               "target": "Package",
               "version": "[10.0.1, )"
@@ -307,6 +314,10 @@
               "target": "Package",
               "version": "[10.0.1, )"
             },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[8.0.11, )"
@@ -314,6 +325,14 @@
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[8.0.3, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.8.1, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.10.1, )"
             }
           },
           "imports": [

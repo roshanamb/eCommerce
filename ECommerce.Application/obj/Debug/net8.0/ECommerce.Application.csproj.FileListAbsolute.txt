@@ -8,11 +8,9 @@ C:\RK\repos\eCommerce\ECommerce.Application\obj\Debug\net8.0\ECommerce.Applicati
 C:\RK\repos\eCommerce\ECommerce.Application\obj\Debug\net8.0\ECommerce.Application.AssemblyInfoInputs.cache
 C:\RK\repos\eCommerce\ECommerce.Application\obj\Debug\net8.0\ECommerce.Application.AssemblyInfo.cs
 C:\RK\repos\eCommerce\ECommerce.Application\obj\Debug\net8.0\ECommerce.Application.csproj.CoreCompileInputs.cache
+C:\RK\repos\eCommerce\ECommerce.Application\obj\Debug\net8.0\ECommerce.Application.sourcelink.json
 C:\RK\repos\eCommerce\ECommerce.Application\obj\Debug\net8.0\ECommerc.670E0CBE.Up2Date
 C:\RK\repos\eCommerce\ECommerce.Application\obj\Debug\net8.0\ECommerce.Application.dll
 C:\RK\repos\eCommerce\ECommerce.Application\obj\Debug\net8.0\refint\ECommerce.Application.dll
 C:\RK\repos\eCommerce\ECommerce.Application\obj\Debug\net8.0\ECommerce.Application.pdb
 C:\RK\repos\eCommerce\ECommerce.Application\obj\Debug\net8.0\ref\ECommerce.Application.dll
-C:\RK\repos\eCommerce\ECommerce.Application\bin\Debug\net8.0\ECommerce.Infrastructure.dll
-C:\RK\repos\eCommerce\ECommerce.Application\bin\Debug\net8.0\ECommerce.Infrastructure.pdb
-C:\RK\repos\eCommerce\ECommerce.Application\obj\Debug\net8.0\ECommerce.Application.sourcelink.json

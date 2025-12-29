@@ -1,10 +1,19 @@
-using ECommerce.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StackExchange.Redis;
-using ECommerce.Application.Services.Interfaces;
+
+using ECommerce.Infrastructure.Data;
 using ECommerce.Infrastructure.Caching;
+using ECommerce.Infrastructure.Email;
+using ECommerce.Infrastructure.Messaging;
+
+using ECommerce.Application.Services.Implementations;
+using ECommerce.Application.Services.Interfaces;
+using ECommerce.Domain.Repositories;
+using ECommerce.Infrastructure;
+using ECommerce.Infrastructure.Repositories;
+
 
 
 namespace ECommerce.Infrastructure;
@@ -55,6 +64,13 @@ public static class DependencyInjection
 
             services.AddSingleton<ICacheService, RedisCacheService>();
         }
+
+        #endregion
+
+        #region RabbitMQ setup
+
+        services.AddSingleton<IMessageQueueService, RabbitMQService>();
+        services.AddSingleton<IEmailSenderService, EmailSenderService>();
 
         #endregion
 

@@ -9,10 +9,12 @@ namespace ECommerce.API.Controllers
     public class CustomersController : ControllerBase
     {
         private readonly ICustomerService _customerService;
+        private readonly IMessageQueueService _messageQueue;
 
-        public CustomersController(ICustomerService customerService)
+        public CustomersController(ICustomerService customerService, IMessageQueueService messageQueue)
         {
             _customerService = customerService;
+            _messageQueue = messageQueue;
         }
 
         [HttpGet]
@@ -33,8 +35,22 @@ namespace ECommerce.API.Controllers
         [HttpPost]
         public async Task<ActionResult> Create(CustomerDto dto)
         {
-            await _customerService.AddAsync(dto);
-            return CreatedAtAction(nameof(GetById), new { id = dto.Id }, dto);
+             var createdCustomer = await _customerService.AddAsync(dto);
+
+            if (createdCustomer == null)
+                return Conflict(new { message = "Customer already registered." });
+
+            var emailDto = new EmailNotificationDto
+            {
+                To = createdCustomer.Email,
+                Subject = "🎉 Welcome to E-Commerce!",
+                Body = $"Hello {createdCustomer.FirstName},<br/>Welcome aboard!"
+            };
+
+            var queue = "email_notifications";
+            await _messageQueue.PublishAsync(queue, emailDto);
+
+            return CreatedAtAction(nameof(GetById), new { id = createdCustomer.Id }, createdCustomer);
         }
 
         [HttpPut("{id}")]
